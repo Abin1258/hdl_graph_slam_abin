@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/shang/03test_ws/02adaptive_slam/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/shang/03test_ws/02adaptive_slam/src/FAST_LIO/include/**",
+        "/home/shang/03test_ws/02adaptive_slam/src/hdl_graph_slam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

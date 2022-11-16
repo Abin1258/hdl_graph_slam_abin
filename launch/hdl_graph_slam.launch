@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+
+  <rosparam file="$(find hdl_graph_slam)/config/param.yaml" command="load" />
+  
+  <!-- transformation between lidar and base_link -->
+  <node pkg="tf" type="static_transform_publisher" name="lidar2base_publisher" args="0 0 0 0 0 0 base_link velodyne 10" />
+
+  <!-- prefiltering_nodelet -->
+  <node pkg="hdl_graph_slam" type="prefiltering_nodelet" name="prefiltering_nodelet" output="screen"/>
+
+  <!-- scan_matching_odometry_nodelet -->
+  <node pkg="hdl_graph_slam" type="scan_matching_odometry_nodelet" name="scan_matching_odometry_nodelet" output="screen"/>
+
+  <!-- floor_detection_nodelet -->
+  <node pkg="hdl_graph_slam" type="floor_detection_nodelet" name="floor_detection_nodelet" output="screen"/>
+
+  <!-- hdl_graph_slam_nodelet -->
+  <node pkg="hdl_graph_slam" type="hdl_graph_slam_nodelet" name="hdl_graph_slam_nodelet" output="screen"/>
+  
+  <!-- map2odom_publisher -->
+  <node pkg="hdl_graph_slam" type="map2odom_publisher.py" name="map2odom_publisher" />
+  
+  <!--- Run Rviz-->
+  <node pkg="rviz" type="rviz" name="hdl_graph_slam_rviz" args="-d $(find hdl_graph_slam)/rviz/hdl_graph_slam.rviz" />
+
+</launch>
